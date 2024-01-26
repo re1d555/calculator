@@ -1,0 +1,37 @@
+body, html {
+    margin: 0;
+    height: 100%;
+    background: lightcoral;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calc-border {
+    margin: 10px;
+    height: 500px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.display {
+    flex: 1;
+    border: 2px solid black;
+    border-bottom: 0;
+    height: 120px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+}
+
+.buttons {
+    flex: 4;
+    border: 2px solid black;
+    height: 360;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
