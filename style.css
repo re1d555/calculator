@@ -23,8 +23,9 @@ body, html {
     background: white;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: xx-large;
+    justify-content: flex-end;
+    font-size: 65px;
+    padding: 10px 20px 10px;
 }
 
 .buttons {
@@ -34,4 +35,12 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+}
+
+.cBtn {
+    width: 99px;
+    height: 99px;
+    border: 1px solid blue;
+    background: white;
+    font-size: xx-large;
 }

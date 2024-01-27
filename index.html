@@ -10,49 +10,99 @@
 
     <div class="calc-border">
         <div class="display"></div>
-        <div class="buttons"></div>
+        <div class="buttons">
+            <button class="cBtn operand" value="7">7</button>
+            <button class="cBtn operand" value="8">8</button>
+            <button class="cBtn operand" value="9">9</button>
+            <button class="cBtn operator">/</button>
+            <button class="cBtn operand" value="4">4</button>
+            <button class="cBtn operand" value="5">5</button>
+            <button class="cBtn operand" value="6">6</button>
+            <button class="cBtn operator">*</button>
+            <button class="cBtn operand" value="1">1</button>
+            <button class="cBtn operand" value="2">2</button>
+            <button class="cBtn operand" value="3">3</button>
+            <button class="cBtn operator">-</button>
+            <button class="cBtn clear">C</button>
+            <button class="cBtn operand" value="0">0</button>
+            <button class="cBtn equal">=</button>
+            <button class="cBtn operator">+</button>
+        </div>
     </div>
 
 
     <script>
 
-        let operandA;
-        let operandB;
-        let operator;
+        let operandA = '';
+        let operandB = '';
+        let operator = '';
+        let result = '';
 
         const display = document.querySelector('.display');
-        const btns = document.querySelector('.buttons');
+        const buttons = document.querySelectorAll('.cBtn');
+        const operandBtn = document.querySelector('.operand');
+        const operatorBtn = document.querySelector('.operator');
+        const clearBtn = document.querySelector('.clear');
+        const equalBtn = document.querySelector('.equal');
 
-        let arr = ['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', 'C', '0', '=', '+']
 
-        for (i = 0; i < 16; i++) {
-            let btn = document.createElement('button');
-            btn.className = 'cBtn';
-            btn.style.cssText = 'width: 99px; height: 99px; background: white; border: 1px solid blue; font-size: xx-large;'
-            btn.textContent = arr[0];
-            arr.shift();
-            btns.appendChild(btn);
+        document.querySelectorAll('.operator').forEach((button) => button.addEventListener('click', (e) => {
+            operator = e.target.textContent;
+            if (result != '') {
+                operator = '';
+            }
+
+            console.log('operandA: ' + typeof(operandA) + ': ' + operandA);
+            console.log('operator: ' + operator);
+            console.log('operandB: ' + typeof(operandB) + ': ' + operandB);
+            console.log('result: ' + result);
+        }));
+        
+        document.querySelectorAll('.operand').forEach((button) => button.addEventListener('click', (e) => {
+            if (operator == '') {
+                operandA += e.target.value;
+                display.textContent = operandA;
+            } else {
+                operandB += e.target.value;
+                display.textContent = operandB;
+            }
+
+            console.log('operandA: ' + typeof(operandA) + ': ' + operandA);
+            console.log('operator: ' + operator);
+            console.log('operandB: ' + typeof(operandB) + ': ' + operandB);
+            console.log('result: ' + result);
+        }));
+      
+        clearBtn.addEventListener('click', () => {
+            operandA = '';
+            operandB = '';
+            operator = '';
+            display.textContent = '';
+
+            console.log('operandA: ' + typeof(operandA) + ': ' + operandA);
+            console.log('operator: ' + operator);
+            console.log('operandB: ' + typeof(operandB) + ': ' + operandB);
+            console.log('result: ' + result);
+        });
+
+        function equal() {
+            display.textContent = operate(operandA, operandB, operator);
+            operator = '';
+            operandA = result;
+            result = '';
+            operandB = '';
+
+            console.log('operandA: ' + typeof(operandA) + ': ' + operandA);
+            console.log('operator: ' + operator);
+            console.log('operandB: ' + typeof(operandB) + ': ' + operandB);
+            console.log('result: ' + result);
         }
 
-        document.querySelectorAll('.cBtn').forEach((button) => button.addEventListener('click', (e) => {
-            display.textContent += e.target.textContent;
-            let digits = display.textContent.split('');
-            operandA = digits[0];
-            operator = digits[1];
-            operandB = digits[2];
-            if (e.target.textContent == '=') {
-                display.textContent = operate(operandA, operandB, operator);
-            } else if (e.target.textContent == 'C') {
-                digits = [];
-                display.textContent = '';
-            }
- 
-        }))
+        equalBtn.addEventListener('click', equal);
 
-       
 
         function add(a, b) {
-           return a + b;
+            return a + b;
         }
         function sub(a, b) {
             return a - b;
@@ -66,13 +116,13 @@
 
         function operate(opdA, opdB, oper) {
             if (oper == '+') {
-                return add(opdA, opdB);
+                return result = add(+opdA, +opdB);
             } else if (oper == '-') {
-                return sub(opdA, opdB);
+                return result = sub(opdA, opdB);
             } else if (oper == '*') {
-                return mul(opdA, opdB);
+                return result = mul(opdA, opdB);
             } else if (oper == '/') {
-                return div(opdA, opdB);
+                return result = div(opdA, opdB);
             }
         }
         
