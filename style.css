@@ -9,38 +9,86 @@ body, html {
 
 .calc-border {
     margin: 10px;
-    height: 500px;
+    height: 800px;
     width: 400px;
     display: flex;
     flex-direction: column;
+    background: rgba(87,102,183,255);
+    border-radius: 25px;
+    border: 4px solid #192263;
 }
 
 .display {
-    flex: 1;
-    border: 2px solid black;
+   
+
     border-bottom: 0;
-    height: 120px;
+    height: 80px;
     background: white;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     font-size: 65px;
     padding: 10px 20px 10px;
+    margin: 0 30px 0 30px;
+    border-radius: 7px;
 }
 
 .buttons {
-    flex: 4;
-    border: 2px solid black;
+
+    /* border: 2px solid black; */
     height: 360;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    justify-content: center;
+    gap: 13px;
+    margin-top: auto;
+    margin-bottom: 40px;
 }
 
 .cBtn {
-    width: 99px;
-    height: 99px;
-    border: 1px solid blue;
+    width: 75px;
+    height: 55px;
+    border: 1px solid black;
     background: white;
     font-size: xx-large;
+    border-radius: 7px;
+}
+
+.clear {
+    background: #b4d24e;
+    color: white;
+    font-weight: 900;
+}
+
+.operator {
+    background: #b6dee0;
+}
+
+.style-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-weight: 900;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 40px 40px 15px 40px;
+}
+
+.solar-cell {
+    height: 60px;
+    width: 165px;
+    background: #635611;
+    border-radius: 7px;
+}
+
+.version {
+    font-weight: 900;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px 10px 0;
+    
 }
