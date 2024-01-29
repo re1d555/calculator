@@ -10,16 +10,19 @@
 
     <div class="calc-border">
         <div class="style-content">
-            <div class="casio">CASIO</div>
+            <div class="casio">CASIO
+                    <div class="info1">re1d555</div>
+                    <div class="info2">The-Odin-Project</div>
+            </div>
             <div class="solar-cell"></div>
         </div>
-        <div class="version">2nd edition</div>
+        <div class="version">9000 edition</div>
         <div class="display"></div>
         <div class="buttons">
-            <button class="cBtn operand" value="7">7</button>
+            <button class="cBtn operand bRadius1" value="7">7</button>
             <button class="cBtn operand" value="8">8</button>
             <button class="cBtn operand" value="9">9</button>
-            <button class="cBtn operator">/</button>
+            <button class="cBtn operator bRadius2">/</button>
             <button class="cBtn operand" value="4">4</button>
             <button class="cBtn operand" value="5">5</button>
             <button class="cBtn operand" value="6">6</button>
@@ -28,99 +31,13 @@
             <button class="cBtn operand" value="2">2</button>
             <button class="cBtn operand" value="3">3</button>
             <button class="cBtn operator">-</button>
-            <button class="cBtn clear">AC</button>
+            <button class="cBtn clear bRadius3">AC</button>
             <button class="cBtn operand" value="0">0</button>
             <button class="cBtn equal">=</button>
-            <button class="cBtn operator">+</button>
+            <button class="cBtn operator bRadius4">+</button>
         </div>
     </div>
 
-
-    <script>
-
-            // console.log('operandA: ' + typeof(operandA) + ': ' + operandA);
-            // console.log('operator: ' + operator);
-            // console.log('operandB: ' + typeof(operandB) + ': ' + operandB);
-            // console.log('result: ' + result);
-
-        let operandA = '';
-        let operandB = '';
-        let operator = '';
-        let result = '';
-
-        const display = document.querySelector('.display');
-        const buttons = document.querySelectorAll('.cBtn');
-        const operandBtn = document.querySelector('.operand');
-        const operatorBtn = document.querySelector('.operator');
-        const clearBtn = document.querySelector('.clear');
-        const equalBtn = document.querySelector('.equal');
-
-
-        document.querySelectorAll('.operator').forEach((button) => button.addEventListener('click', (e) => {
-            if (result != '') {
-                operator = '';
-            }
-            if (operandA != '' && operandB != '') {
-                equal()
-                operator = e.target.textContent;
-            } else {
-                operator = e.target.textContent;
-            }
-        }));
-        
-        document.querySelectorAll('.operand').forEach((button) => button.addEventListener('click', (e) => {
-            if (operator == '') {
-                operandA += e.target.value;
-                display.textContent = operandA;
-            } else {
-                operandB += e.target.value;
-                display.textContent = operandB;
-            }
-        }));
-      
-        clearBtn.addEventListener('click', () => {
-            operandA = '';
-            operandB = '';
-            operator = '';
-            display.textContent = '';
-        });
-
-        function equal() {
-            display.textContent = operate(operandA, operandB, operator);
-            operator = '';
-            operandA = result;
-            result = '';
-            operandB = '';
-        }
-
-        equalBtn.addEventListener('click', equal);
-
-
-        function add(a, b) {
-            return a + b;
-        }
-        function sub(a, b) {
-            return a - b;
-        }
-        function mul(a, b) {
-            return a * b;
-        }
-        function div(a, b) {
-            return a / b;
-        }
-
-        function operate(opdA, opdB, oper) {
-            if (oper == '+') {
-                return result = add(+opdA, +opdB);
-            } else if (oper == '-') {
-                return result = sub(opdA, opdB);
-            } else if (oper == '*') {
-                return result = mul(opdA, opdB);
-            } else if (oper == '/') {
-                return result = div(opdA, opdB);
-            }
-        }
-        
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

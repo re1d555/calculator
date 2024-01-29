@@ -1,7 +1,7 @@
 body, html {
     margin: 0;
     height: 100%;
-    background: lightcoral;
+    background: rgb(235, 150, 150);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,11 +19,9 @@ body, html {
 }
 
 .display {
-   
-
-    border-bottom: 0;
+    border: 2px solid #192263;
     height: 80px;
-    background: white;
+    background: lightgray;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -34,8 +32,6 @@ body, html {
 }
 
 .buttons {
-
-    /* border: 2px solid black; */
     height: 360;
     display: flex;
     flex-wrap: wrap;
@@ -49,10 +45,11 @@ body, html {
 .cBtn {
     width: 75px;
     height: 55px;
-    border: 1px solid black;
+    border: 2px solid black;
     background: white;
     font-size: xx-large;
     border-radius: 7px;
+    box-shadow: 3px 3px 10px 1px rgba(0, 0, 255, 0.329);
 }
 
 .clear {
@@ -62,7 +59,7 @@ body, html {
 }
 
 .operator {
-    background: #b6dee0;
+    background: #ade1e4;
 }
 
 .style-content {
@@ -73,7 +70,7 @@ body, html {
     font-weight: 900;
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 40px 40px 15px 40px;
+    padding: 40px 40px 10px 40px;
 }
 
 .solar-cell {
@@ -81,6 +78,7 @@ body, html {
     width: 165px;
     background: #635611;
     border-radius: 7px;
+    border: 2px solid #a59029;
 }
 
 .version {
@@ -91,4 +89,34 @@ body, html {
     justify-content: flex-end;
     padding: 0 20px 10px 0;
     
+}
+
+.info1, .info2 {
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.casio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70px;
+}
+
+.bRadius1 {
+    border-radius: 25px 7px 7px 7px;
+}
+
+.bRadius2 {
+    border-radius: 7px 25px 7px 7px;
+}
+
+.bRadius3 {
+    border-radius: 7px 7px 7px 25px;
+}
+
+.bRadius4 {
+    border-radius: 7px 7px 25px 7px;
 }
