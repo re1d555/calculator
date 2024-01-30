@@ -15,8 +15,19 @@
             const operatorBtn = document.querySelector('.operator');
             const clearBtn = document.querySelector('.clear');
             const equalBtn = document.querySelector('.equal');
-    
-    
+            const delBtn = document.querySelector('.del');
+            const onOffBtn = document.querySelector('.onOff');
+            
+            onOffBtn.addEventListener('click', () => {
+                if (display.textContent == '') {
+                    display.textContent = 0;
+                } else if (display.textContent != '') {
+                    display.textContent = display.textContent.substring(0);
+                    display.textContent = '';
+                } 
+                
+            })
+
             document.querySelectorAll('.operator').forEach((button) => button.addEventListener('click', (e) => {
                 if (result != '') {
                     operator = '';
@@ -34,11 +45,13 @@
                     if (previousResult != '') {
                         operandA = '';
                     } previousResult = '';    
-                    
+
                     if (operator == '') {
+                        operandA = operandA.substring(0, 8);
                         operandA += e.target.value;
                         display.textContent = operandA;
                     } else {
+                        operandB = operandB.substring(0, 8);
                         operandB += e.target.value;
                         display.textContent = operandB;
                     }
@@ -48,9 +61,24 @@
                 operandA = '';
                 operandB = '';
                 operator = '';
-                display.textContent = '';
+                display.textContent = 0;
             });
-    
+
+            delBtn.addEventListener('click', () => 
+            {   
+                if (operator == '') {
+                    operandA = operandA.slice(0, -1);
+                    display.textContent = operandA;
+                } else {
+                    operandB = operandB.slice(0, -1);
+                    display.textContent = operandB;
+                }
+
+                // if (operandA == '' || operandB == '') {
+                //     display.textContent = 0;
+                // }
+            });
+
             function equal() {
                 if (operandA == '' || operandB == '') {
                     return;
@@ -84,13 +112,17 @@
     
             function operate(opdA, opdB, oper) {
                 if (oper == '+') {
-                    return result = add(+opdA, +opdB);
+                    result = add(+opdA, +opdB);
+                    return result.toString().substring(0, 9);
                 } else if (oper == '-') {
-                    return result = sub(opdA, opdB);
+                    result = sub(opdA, opdB);
+                    return result.toString().substring(0, 9);
                 } else if (oper == '*') {
-                    return result = mul(opdA, opdB);
+                    result = mul(opdA, opdB);
+                    return result.toString().substring(0, 9);
                 } else if (oper == '/') {
-                    return result = div(opdA, opdB);
+                    result = div(opdA, opdB);
+                    return result.toString().substring(0, 9);
                 }
             }
             

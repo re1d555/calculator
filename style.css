@@ -1,7 +1,8 @@
 body, html {
     margin: 0;
     height: 100%;
-    background: rgb(235, 150, 150);
+    /* background: rgb(235, 150, 150); */
+    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,7 +33,7 @@ body, html {
 }
 
 .buttons {
-    height: 360;
+    /* height: 360; */
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -44,7 +45,7 @@ body, html {
 
 .cBtn {
     width: 75px;
-    height: 55px;
+    height: 70px;
     border: 2px solid black;
     background: white;
     font-size: xx-large;
@@ -52,10 +53,18 @@ body, html {
     box-shadow: 3px 3px 10px 1px rgba(0, 0, 255, 0.329);
 }
 
-.clear {
+.clear, .del {
     background: #b4d24e;
     color: white;
     font-weight: 900;
+    width: 162px;
+}
+
+.onOff {
+    color: #b4d24e;
+    font-weight: 900;
+    width: 250px;
+    margin-bottom: 5px;
 }
 
 .operator {
