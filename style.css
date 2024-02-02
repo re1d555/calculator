@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     height: 100%;
     /* background: rgb(235, 150, 150); */
-    background: white;
+    background: rgb(146, 146, 146);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,12 +21,12 @@ body, html {
 
 .display {
     border: 2px solid #192263;
-    height: 80px;
+    height: 85px;
     background: lightgray;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    font-size: 65px;
+    font-size: 75px;
     padding: 10px 20px 10px;
     margin: 0 30px 0 30px;
     border-radius: 7px;
@@ -45,12 +45,18 @@ body, html {
 
 .cBtn {
     width: 75px;
-    height: 70px;
+    height: 85px;
     border: 2px solid black;
     background: white;
-    font-size: xx-large;
+    font-size: 45px;
     border-radius: 7px;
     box-shadow: 3px 3px 10px 1px rgba(0, 0, 255, 0.329);
+
+    transition: all 0.1s;
+}
+
+.playing {
+    transform: scale(0.9);
 }
 
 .clear, .del {
@@ -58,13 +64,6 @@ body, html {
     color: white;
     font-weight: 900;
     width: 162px;
-}
-
-.onOff {
-    color: #b4d24e;
-    font-weight: 900;
-    width: 250px;
-    margin-bottom: 5px;
 }
 
 .operator {
