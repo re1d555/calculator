@@ -1,9 +1,3 @@
-            // console.log('operandA: ' + typeof(operandA) + ': ' + operandA);
-            // console.log('operator: ' + operator);
-            // console.log('operandB: ' + typeof(operandB) + ': ' + operandB);
-            // console.log('result: ' + result);
-            // console.log('previousResult: ' + previousResult);
-
             let operandA = '';
             let operandB = '';
             let operator = '';
@@ -25,7 +19,7 @@
                 this.classList.remove('playing');
             }
 
-            const audio = document.querySelector(`audio[data-key="1"]`);
+            const audio = document.querySelector(`audio[class="sound"]`);
             buttons.forEach(button => button.addEventListener('click', () => {
                 if (!audio) return;
                 audio.currentTime = 0;
@@ -34,9 +28,10 @@
             }));          
 
             buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
+
     // calculator itself
 
-            document.querySelectorAll('.operator').forEach((button) => button.addEventListener('click', (e) => {
+            document.querySelectorAll('.operator').forEach((button) => button.addEventListener('click', (e) => {              
                 if (result != '') {
                     operator = '';
                 }
@@ -45,6 +40,7 @@
                     equal()
                     operator = e.target.textContent;
                 } operator = e.target.textContent; 
+
                 previousResult = '';
             }));
             
@@ -53,29 +49,32 @@
                 if (previousResult != '') {
                         operandA = '';
                     } previousResult = '';
-    // delete bug with 0 before numbers
-                    if (operandA == 0) {
-                        operandA = '';
-                    }
-                    if (operandB == 0) {
-                        operandB = '';
-                    }
-    // delete last operand symbol bug
+
                     if (operator == '') {
                         if (operandA.length < 8) {
+                            if (operandA.charAt(0) == 0) {
+                                operandA = operandA.substring(1);
+                            }
+                            if (operandA.charAt(1) == '.') {
+                                dot.value = '';
+                            } else dot.value = '.'
                             operandA = operandA.substring(0, 7);
                             operandA += e.target.value;
                             display.textContent = operandA;
                         }
                     } else {
                         if (operandB.length < 8) {
+                            if (operandB.charAt(0) == 0) {
+                                operandB = operandB.substring(1);
+                            }
+                            if (operandB.charAt(1) == '.') {
+                                dot.value = '';
+                            } else dot.value = '.'
                             operandB = operandB.substring(0, 7);
                             operandB += e.target.value;
                             display.textContent = operandB;
                         }
                     }
-    // delete dot bug
-                    display.textContent.includes('.') ? dot.value = '' : dot.value = '.';
             }));
           
             clearBtn.addEventListener('click', () => {
@@ -86,7 +85,10 @@
             });
 
             delBtn.addEventListener('click', () => 
-            {   
+            {   if (previousResult != '') {
+                operandA = '';
+                previousResult = '';
+            }
                 if (operator == '') {
                     operandA = operandA.toString().slice(0, -1);
                     display.textContent = operandA;
@@ -147,4 +149,3 @@
                     return result.toString().substring(0, 8);
                 }
             }
-            
